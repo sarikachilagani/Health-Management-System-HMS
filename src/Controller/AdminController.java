@@ -13,6 +13,12 @@ public class AdminController {
 		int patientId = sc.nextInt();
 		System.out.println("Enter patientName:");
 		String patientname = sc.next();
+		System.out.println("Enter patientAge:");
+		int age = sc.nextInt();
+		System.out.println("Enter Gender:");
+		String gender = sc.next();
+		System.out.println("Enter Email:");
+		String email = sc.next();
 		System.out.println("Enter phoneNumber:");
 		int phone = sc.nextInt();
 		System.out.println("Enter diseaseId:");
@@ -21,6 +27,9 @@ public class AdminController {
 		PatientModel patient = new PatientModel();
 		patient.setPatientId(patientId);
 		patient.setPatientName(patientname);
+		patient.setPatientAge(age);
+		patient.setGender(gender);
+		patient.setEmail(email);
 		patient.setPhone(phone);
 		patient.setDiseaseId(diseaseId);
 		
@@ -48,6 +57,13 @@ public class AdminController {
 		String doctorName = sc.next();
 		System.out.println("Enter phoneNumber:");
 		int phone = sc.nextInt();
+		System.out.println("Enter email:");
+		String email = sc.next();
+		System.out.println("Enter specialist:");
+		String specialist = sc.next();
+		System.out.println("Enter yearOfExperience:");
+		int experience = sc.nextInt();
+		
 		System.out.println("Enter diseaseId:");
 		int diseaseId = sc.nextInt();
 		
@@ -55,6 +71,9 @@ public class AdminController {
 		doctor.setDoctorId(doctorId);
 		doctor.setDoctorName(doctorName);
 		doctor.setPhone(phone);
+		doctor.setEmail(email);
+		doctor.setSpecialist(specialist);
+		doctor.setExperience(experience);
 		doctor.setDiseaseId(diseaseId);
 		
 		AdminService admin=new AdminService();
@@ -79,8 +98,8 @@ public class AdminController {
 	System.out.println("1.Patient");
 	System.out.println("2.Doctor");
 	Scanner sc=new Scanner(System.in);
-	String value2=sc.next();
-	if(value2.equalsIgnoreCase("Patient")) {
+	int value2=sc.nextInt();
+	if(value2==1) {
 		System.out.println("HMS-choose action:");
 		System.out.println("1.Add");
 		System.out.println("2.Remove");

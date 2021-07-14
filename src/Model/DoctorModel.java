@@ -1,8 +1,28 @@
 package Model;
 
 public class DoctorModel {
-	private int doctorId,diseaseId,phone;
-	private String doctorName;
+	private int doctorId,diseaseId,phone,experience;
+	private String doctorName,email,specialist;
+	
+	public int getExperience() {
+		return experience;
+	}
+	public void setExperience(int experience) {
+		this.experience = experience;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getSpecialist() {
+		return specialist;
+	}
+	public void setSpecialist(String specialist) {
+		this.specialist = specialist;
+	}
+	
 	
 	public int getDoctorId() {
 		return doctorId;

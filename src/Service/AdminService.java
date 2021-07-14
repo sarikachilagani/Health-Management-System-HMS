@@ -9,7 +9,7 @@ public class AdminService {
 	public boolean patientSave(PatientModel patient) {
 
 		String insertSql = "insert into patients values('" + patient.getPatientId() + "','" + patient.getPatientName()
-				+ "','" + patient.getPhone() + "'," + patient.getDiseaseId() + ")";
+				+ "'," +patient.getPatientAge()+",'" +patient.getGender()+"','"+patient.getEmail()+"','" + patient.getPhone() + "'," + patient.getDiseaseId() + ")";
 
 		Util util = new Util();
 		int result = util.executeInsert(insertSql);
@@ -28,7 +28,7 @@ public class AdminService {
 	public boolean doctorSave(DoctorModel doctor) {
 
 		String insertSql = "insert into doctors values('" +doctor.getDoctorId()+ "','" + doctor.getDoctorName()
-				+ "','" +doctor.getPhone()+ "'," +doctor.getDiseaseId()+ ")";
+				+ "'," +doctor.getPhone()+ ", '"+doctor.getEmail()+"','"+doctor.getSpecialist()+"',"+doctor.getExperience()+"," +doctor.getDiseaseId()+ ")";
 
 		Util util = new Util();
 		int result = util.executeInsert(insertSql);
@@ -43,5 +43,5 @@ public class AdminService {
 		int results = util1.executeDelete(deleteSql);
 		return results == 1 ? true : false;
 	}
-
+	
 }
