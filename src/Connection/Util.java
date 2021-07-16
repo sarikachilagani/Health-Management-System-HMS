@@ -57,5 +57,17 @@ public class Util {
     	}
         return 0;
     }
+    public int executeUpdate(String updateSql) {
+    	try {
+    		Class.forName("com.mysql.jdbc.Driver");
+    		Connection con=DriverManager.getConnection(DB_URL,USER_NAME,PASSWORD);
+    		Statement sts=con.createStatement();
+    		return sts.executeUpdate(updateSql);
+    	}catch(Exception e) {
+    		System.out.println("Connection failed:" + e);
+    	}
+        return 0;
+    }
+    
     
 }

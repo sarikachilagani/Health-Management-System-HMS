@@ -24,6 +24,14 @@ public class AdminService {
 		int results = util1.executeDelete(deleteSql);
 		return results == 1 ? true : false;
 	}
+	
+	public boolean patientUpdate(PatientModel patient) {
+
+		String updateSql = "update patients set patientName='"+patient.getPatientName()+"' where patientId="+patient.getPatientId()+"";
+		Util util2 = new Util();
+		int results = util2.executeUpdate(updateSql);
+		return results == 1 ? true : false;
+	}
 
 	public boolean doctorSave(DoctorModel doctor) {
 
@@ -41,6 +49,15 @@ public class AdminService {
 
 		Util util1 = new Util();
 		int results = util1.executeDelete(deleteSql);
+		return results == 1 ? true : false;
+	}
+	
+	public boolean doctorUpdate(DoctorModel doctor) {
+
+		String updateSql = "update doctors set doctorName='"+doctor.getDoctorName()+"' where doctorId="+doctor.getDoctorId()+"";
+
+		Util util1 = new Util();
+		int results = util1.executeUpdate(updateSql);
 		return results == 1 ? true : false;
 	}
 	

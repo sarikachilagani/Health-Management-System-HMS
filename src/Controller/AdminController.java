@@ -49,6 +49,23 @@ public class AdminController {
 		admin.patientRemove(patient);
 		System.out.println("patient details deleted sucessful:");
 	}
+	private static void patientUpdate(Scanner sc) {
+		System.out.println("please enter patientId you want update:");
+		int patientId = sc.nextInt();
+		
+		System.out.println("please enter patientName you want update:");
+		String patientName=sc.next();
+		
+		PatientModel patient = new PatientModel();
+		patient.setPatientId(patientId);
+		patient.setPatientName(patientName);
+		
+		AdminService admin=new AdminService();
+		admin.patientUpdate(patient);
+		System.out.println("patient details updated sucessful:");
+	}
+	
+	
 	
 	private void doctorAdd(Scanner sc) {
 		System.out.println("Enter doctorId:");
@@ -93,8 +110,24 @@ public class AdminController {
 		System.out.println("doctor details deleted sucessful:");
 	}
 	
+	private void doctorUpdate(Scanner sc) {
+		System.out.println("please enter doctorId:");
+		int doctorId = sc.nextInt();
+		
+		System.out.println("please enter doctorName you want update:");
+		String doctorName = sc.next();
+		
+		DoctorModel doctors = new DoctorModel();
+		doctors.setDoctorId(doctorId);
+		doctors.setDoctorName(doctorName);
+		
+		AdminService admin=new AdminService();
+		admin.doctorUpdate(doctors);
+		System.out.println("doctor details updated sucessful:");
+	}
+	
 	public void adminAction() {
-	System.out.println("HMS-Enter which type would you like to add/remove:");
+	System.out.println("HMS-Enter which type would you like to add/remove/update:");
 	System.out.println("1.Patient");
 	System.out.println("2.Doctor");
 	Scanner sc=new Scanner(System.in);
@@ -103,6 +136,7 @@ public class AdminController {
 		System.out.println("HMS-choose action:");
 		System.out.println("1.Add");
 		System.out.println("2.Remove");
+		System.out.println("3.update");
 		int value3=sc.nextInt();
 		switch(value3) {
 		case 1:{
@@ -113,11 +147,16 @@ public class AdminController {
 			patientDelete(sc);
 			break;
 		}
+		case 3:{
+			patientUpdate(sc);
+			break;
+		}
 		}
 	}else {
 		System.out.println("HMS-choose action:");
 		System.out.println("1.Add");
 		System.out.println("2.Remove");
+		System.out.println("3.update");
 		int value4=sc.nextInt();
 		switch(value4) {
 		case 1:{
@@ -126,6 +165,10 @@ public class AdminController {
 		}
 		case 2:{
 			doctorDelete(sc);
+			break;
+		}
+		case 3:{
+			doctorUpdate(sc);
 			break;
 		}
 	}
